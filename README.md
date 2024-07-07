@@ -1,3 +1,8 @@
-# Senshi's very own Coffee Tracker
+# Senshi's very own Calorie Tracker
 
-A specially made cold brew or concentrated coffee batch tracker.
+## V1
+
+Supports calorie tracking. 
+
+Supports coffee cold brew tracking.
+
