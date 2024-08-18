@@ -2,7 +2,7 @@ version: '3'
 
 services:
   server:
-    container_name: senshicoffee-server 
+    container_name: tradersenshi-server 
     build:
       context: ./server
       dockerfile: Dockerfile
@@ -21,19 +21,19 @@ services:
       - redis
 
   mongodb:
-    container_name: senshicoffee-mongodb
+    container_name: tradersenshi-mongodb
     image: mongo
     ports:
       - "27017:27017"
 
   redis:
-    container_name: senshicoffee-redis
+    container_name: tradersenshi-redis
     image: redis
     ports:
       - "6379:6379"
 
   frontend:
-    container_name: senshicoffee-client
+    container_name: tradersenshi-client
     build:
       context: ./client
       dockerfile: Dockerfile
