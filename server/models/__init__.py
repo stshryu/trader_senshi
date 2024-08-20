@@ -1,5 +1,5 @@
 from models.cold_brew import ColdBrew
-from models.foods import Foods
+from models.food import Food
 from models.user import User
 from models.admin import Admin
 

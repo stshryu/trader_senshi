@@ -1,5 +1,5 @@
 from beanie import Document
-from fastapi.security import HTTPBaseCredentials
+from fastapi.security import HTTPBasicCredentials
 from pydantic import BaseModel, EmailStr
 
 class ColdBrew(Document):

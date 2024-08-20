@@ -5,10 +5,10 @@ from models.cold_brew import ColdBrew
 from models.admin import Admin
 from models.user import User
 
-profile_collection = Profile
 food_collection = Food
 cold_brew_collection = ColdBrew
-admin_collection = Admin user_collection = User
+admin_collection = Admin 
+user_collection = User
 
 ########## Food ##########  
 async def retrieve_foods() -> List[Food]:

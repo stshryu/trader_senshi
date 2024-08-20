@@ -3,10 +3,10 @@ from beanie import Document
 from pydantic import BaseModel
 
 class Food(Document):
-    name: str,
-    calories: int,
-    description: str,
-    quantity: int,
+    name: str
+    calories: int
+    description: str
+    quantity: int
     origin: str
 
     class Config:

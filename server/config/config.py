@@ -6,6 +6,8 @@ import models as models
 
 class Settings(BaseSettings):
     DATABASE_URL: Optional[str] = None
+    SECRET_KEY: Optional[str] = None
+    ALGORITHM: Optional[str] = None
 
     class Config:
         env_file = ".env.dev"

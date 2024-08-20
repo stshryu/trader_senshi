@@ -1,4 +1,5 @@
 from typing import Optional, Any
+from fastapi.security import HTTPBasicCredentials
 from beanie import Document
 from pydantic import BaseModel, EmailStr
 

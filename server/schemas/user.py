@@ -8,7 +8,7 @@ class UserSignIn(HTTPBasicCredentials):
             "example": { "username": "test@gmail.com", "password": "secret" }
         }
 
-class AdminData(BaseModel):
+class UserData(BaseModel):
     username: str
     email: EmailStr
 

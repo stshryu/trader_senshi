@@ -14,8 +14,10 @@ pymongo>=4.5.0
 pydantic>=2.4.2
 pydantic_core>=2.10.1
 pydantic-settings
+PyJWT
 
 pytest
+pytest-mock
 pytest-asyncio
 pytest-cov
 httpx
