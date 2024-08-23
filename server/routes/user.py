@@ -22,7 +22,7 @@ async def user_login(user_credentials: UserSignIn=Body(...)):
 
 
 @router.post("", response_model=UserData)
-async def admin_signup(user: User=Body(...)):
+async def user_signup(user: User=Body(...)):
     user_exists = await User.find_one(User.email == user.email)
     if user_exists:
         raise HTTPException(
