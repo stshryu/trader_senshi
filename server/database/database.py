@@ -47,7 +47,7 @@ async def get_user_by_username(username: str) -> User:
 
 ########## Admin ##########  
 async def add_admin(new_admin: Admin) -> Admin:
-    admin = await admin.create()
+    admin = await new_admin.create()
     return admin
 
 async def get_admin_by_username(username: str) -> Admin:

@@ -22,7 +22,7 @@ class Admin(Document):
 class AdminSignIn(HTTPBasicCredentials):
     class Config:
         json_schema_extra = {
-            "example": { "username": "test@gmail.com", "password": "secret" }
+            "example": { "username": "steebert", "password": "secret" }
         }
 
 class AdminData(BaseModel):

@@ -1,21 +1,22 @@
 from fastapi import Body, APIRouter, HTTPException
-from passlib.context import CryptContext
+from fastapi.security import OAuth2PasswordBearer
+import bcrypt
 
 from database.database import add_admin
 from models.admin import Admin
 from schemas.admin import AdminData, AdminSignIn
+from auth.auth import verify_password, get_password_hash, create_access_token
 
 router = APIRouter()
 
-hash_helper = CryptContext(schemes=["bcrypt"])
-
 @router.post("/login")
-async def admin_login(admin_credentials: AdminSignIn = Body(...)):
-    admin_exists = await Admin.find_one(Admin.email == admin_credentials.username)
+async def admin_login_with_username(admin_credentials: AdminSignIn = Body(...)):
+    admin_exists = await Admin.find_one(Admin.username == admin_credentials.username)
     if admin_exists:
-        password = hash_helper.verify(admin_credentials.password, admin_exists.password)
+        password = verify_password(admin_credentials.password, admin_exists.password)
         if password:
-            return True
+            access_token = create_access_token({"sub": admin_exists.username}, None)
+            return {"access_token": access_token, "token_type": "bearer"}
 
         raise HTTPException(status_code=403, detail="Incorrect email or password")
     raise HTTPException(status_code=403, detail="Incorrect email or password")
@@ -29,6 +30,6 @@ async def admin_signup(admin: Admin = Body(...)):
             status_code=409, detail="Admin with email already exists"
         )
 
-    admin.password = hash_helper.encrypt(admin.password)
+    admin.password = get_password_hash(admin.password)
     new_admin = await add_admin(admin)
     return new_admin

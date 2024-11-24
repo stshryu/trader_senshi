@@ -1,9 +1,9 @@
 from fastapi import FastAPI, Depends
 from config.config import init_db 
 from contextlib import asynccontextmanager
-from auth.jwt_bearer import JWTBearer
 from routes.admin import router as AdminRouter
 from routes.user import router as UserRouter
+from auth.jwt_bearer import JWTBearer
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
