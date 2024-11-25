@@ -1,6 +1,10 @@
 # Senshi's very own Calorie Tracker
 
-## V1
+## Frontend Features
+
+Coming soon.
+
+## Backend Server Features
 
 ### Authentication & JWT's
 
