@@ -11,17 +11,25 @@ admin_collection = Admin
 user_collection = User
 
 ########## Food ##########  
-async def retrieve_foods() -> List[Food]:
+async def retrieve_all_foods() -> List[Food]:
     foods = await food_collection.all().to_list()
     return foods
 
-async def add_food(new_food: Food) -> Food:
+async def create_food(new_food: Food) -> Food:
     food = await new_food.create()
     return food
 
 async def retrieve_food(id: PydanticObjectId) -> Food:
     food = await food_collection.find(Food.id == id).first_or_none()
     return food
+
+async def remove_food(id: PydanticObjectId) -> PydanticObjectId | bool:
+    food = await food_collection.find(Food.id == id).first_or_none()
+    if food:
+        await food.delete()
+        return id
+    return False
+
 
 ########## Cold Brew ##########  
 async def retrieve_cold_brews(id: PydanticObjectId) -> List[ColdBrew]:

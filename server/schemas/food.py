@@ -22,20 +22,3 @@ class UpdateFoodModel(BaseModel):
                 "origin": "Farmers Market"
             }
         }
-
-
-class Response(BaseModel):
-    status_code: int
-    response_type: str
-    description: str
-    data: Optional[any]
-
-    class Config:
-        json_schema_extra = {
-            "example": {
-                "status_code": 200,
-                "response_type": "success",
-                "description": "Operation Successfull",
-                "data": "{'sample_data': 'hi'}"
-            }
-        }

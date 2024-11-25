@@ -19,4 +19,4 @@ class ColdBrew(Document):
         }
 
     class Settings:
-        name = "ColdBrew"
+        name = "coldbrew"

@@ -19,3 +19,7 @@ class Food(Document):
                 "origin": "Whole Foods"
             }
         }
+
+    class Settings:
+        name = "food"
+
